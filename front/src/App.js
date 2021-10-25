@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Header } from "./components/Header";
 
 const App = () => {
   // -------------------------------------------------
@@ -35,26 +36,21 @@ const App = () => {
 
   return (
     <section>
-      <h1> Prueba tecnica front Ecomsur 2021</h1>
-      <p>Borra esto y comienza aqui.</p>
+      <Header counter="4" />
+
       {!isLoading && (
         <section>
           <h1>Esta cargando los productos</h1>
         </section>
       )}
 
-      {
-        isLoading && (
-          <section>
-            {products.map((item) => (
-              <h1 key={item._id}>{item.name}</h1>
-            ))}
-          </section>
-        )
-
-        /* Chec
-        k to see if express server is running correctly */
-      }
+      {isLoading && (
+        <section>
+          {products.map((item) => (
+            <h1 key={item._id}>{item.name}</h1>
+          ))}
+        </section>
+      )}
       <h5>{response}</h5>
     </section>
   );
