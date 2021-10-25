@@ -13,11 +13,12 @@ export const CarIcon = ({ counter }) => {
           background-color: var(--white);
           border-radius: 10px;
           font-size: 3rem;
-          transition: all .8s ease;
+          transition: all .4s ease;
         }
         .car-item:hover {
             color: var(--hover-gray);
             transform: scale(1.2);
+            cursor: pointer;
         }
         .car-item-number {
           color: var(--black);

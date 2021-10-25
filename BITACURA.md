@@ -8,3 +8,6 @@ Cambie el nombre del archivo index.css a global.css y dentro coloque unos estilo
 Utilize google font para obtener las tipografias y use font awesome para los iconos.
 Utilizo en la etiqueta html un font-size de 62.5% para poder usar mejor la medida rem para temas de accesibilidad con el tamaño de la tipografia.
 Utilize un carpeta components para guardar todos los componentes que utilizare para la pagina.
+Utilizando CSS-in-JS para estilizar los componentes y utilizando metodologia BEM para nombrar las clases, tambien agrega pequeñas animaciones para interactividad y le coloco los props a los componentes para ser utilizados luego.
+Utilizando reglas de diseño, jerarquizo los textos de las cards usando un font-weight, bold, regular y light.
+Luego de lograr mostrar la lista de productos debo las paginas dinamicas.

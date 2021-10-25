@@ -6,7 +6,7 @@ export const Header = ({ counter }) => {
     <header className="header padding">
       <nav className="header-nav">
         <ul className="flex-space-between header-nav-browser">
-          <li>Ecomsur Store</li>
+          <li>Tech Store</li>
           <CarIcon counter={counter} />
         </ul>
       </nav>
@@ -15,7 +15,7 @@ export const Header = ({ counter }) => {
           width: 100%;
           height: 30px;
           font-family: var(--font-display);
-          margin-bottom: 16px;
+          margin-bottom: 24px;
           letter-spacing: 0.8px;
         }
         .header-nav-browser {

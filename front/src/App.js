@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "./components/Header";
+import { ProductsCards } from "./components/ProductsCards";
 
 const App = () => {
   // -------------------------------------------------
@@ -36,7 +37,7 @@ const App = () => {
 
   return (
     <section>
-      <Header counter="4" />
+      <Header counter="7" />
 
       {!isLoading && (
         <section>
@@ -45,13 +46,18 @@ const App = () => {
       )}
 
       {isLoading && (
-        <section>
+        <section className="flex-wrap padding center">
           {products.map((item) => (
-            <h1 key={item._id}>{item.name}</h1>
+            <ProductsCards
+              key={item._id}
+              image={item.image}
+              name={item.name}
+              brand={item.brand}
+              price={item.price}
+            />
           ))}
         </section>
       )}
-      <h5>{response}</h5>
     </section>
   );
 };
