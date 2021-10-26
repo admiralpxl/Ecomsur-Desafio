@@ -11,3 +11,4 @@ Utilize un carpeta components para guardar todos los componentes que utilizare p
 Utilizando CSS-in-JS para estilizar los componentes y utilizando metodologia BEM para nombrar las clases, tambien agrega pequeñas animaciones para interactividad y le coloco los props a los componentes para ser utilizados luego.
 Utilizando reglas de diseño, jerarquizo los textos de las cards usando un font-weight, bold, regular y light.
 Luego de lograr mostrar la lista de productos debo las paginas dinamicas.
+Agrege un setTimeOut para simular la carga de la pagina

@@ -1,29 +1,81 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const ProductsCards = ({ image, name, brand, price }) => {
+export const ProductsCards = ({
+  image,
+  name,
+  brand,
+  price,
+  rating,
+  reviews,
+  disable,
+  add,
+  productId,
+}) => {
   return (
-    <article className="product-card flex-column scale">
+    <article className="product-card scale">
       <figure className="product-card-image">
         <img src={`http://localhost:5000${image}`} alt={name} />
       </figure>
+      <article className="product-card-info">
+        <div className="flex-gap">
+          <span className="fas fa-box"></span>
+          <h2 className="product-card-name margin-bottom-8">{name}</h2>
+        </div>
+        <div className="flex-gap">
+          <span className="fas fa-tag"></span>
+          <p className="product-card-brand margin-bottom-8">{brand}</p>
+        </div>
+        <div className="flex-gap">
+          <span className="fas fa-star"></span>
+          <h2 className="product-card-rating light margin-bottom-8">
+            {rating}
+          </h2>
+        </div>
+        <div className="flex-gap">
+          <span className="far fa-thumbs-up"></span>
+          <h2 className="product-card-reviews light margin-bottom-8">
+            {reviews}
+          </h2>
+        </div>
+        <div className="flex-gap">
+          <span className="fas fa-hand-holding-usd"></span>
+          <h3 className="product-card-price margin-bottom-8">$ {price}</h3>
+        </div>
+        <article className="product-card-button">
+          <Link to={`/products/${productId}`}>
+            <button className="product-card-buttons transition-button">
+              <span className="fas fa-money-check margin"></span>
+              Detalles
+            </button>
+          </Link>
+          <button
+            onClick={add}
+            className={`product-card-buttons transition-button ${disable}`}
+          >
+            <span className="far fa-plus-square margin"></span>
+            Al Carrito
+          </button>
+        </article>
+      </article>
 
-      <div className="flex-gap">
-        <span className="fas fa-box"></span>
-        <h2 className="product-card-name margin-bottom-8">{name}</h2>
-      </div>
-      <div className="flex-gap">
-        <span className="fas fa-tag"></span>
-        <p className="product-card-brand margin-bottom-8">{brand}</p>
-      </div>
-      <div className="flex-gap">
-        <span className="fas fa-hand-holding-usd"></span>
-        <h3 className="product-card-price margin-bottom-8">$ {price}</h3>
-      </div>
       <style jsx>{`
+        .product-card-buttons {
+          width: 120px;
+          height: 40px;
+          margin-right: 12px;
+          outline: none;
+          border: 3px solid var(--black);
+          text-align: center;
+          background-color: transparent;
+          font-size: var(--button);
+          font-family: var(--font-display);
+        }
         .product-card {
+          display: grid;
           width: 100%;
-          max-width: 320px;
-          height: 400px;
+          max-width: 640px;
+          height: auto;
           background-color: var(--white);
           border-radius: 10px;
           padding: 14px;
@@ -51,6 +103,31 @@ export const ProductsCards = ({ image, name, brand, price }) => {
           font-size: var(--card-price);
           font-weight: var(--bold);
           color: var(--black);
+        }
+        .product-card-button {
+          margin-top: 8px;
+        }
+        .margin {
+          margin-right: 6px;
+        }
+        .light {
+          font-weight: var(--medium);
+          align-items: center;
+          color: var(--black);
+          font-size: var(--card-items);
+        }
+        @media (min-width: 550px) {
+          .product-card {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-gap: 8px;
+          }
+          .product-image-card {
+            grid-column: 1;
+          }
+          .product-card-info {
+            grid-column: 2;
+          }
         }
       `}</style>
     </article>

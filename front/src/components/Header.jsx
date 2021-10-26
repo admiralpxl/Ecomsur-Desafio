@@ -1,13 +1,18 @@
 import React from "react";
 import { CarIcon } from "./CarIcon";
+import { Link } from "react-router-dom";
 
 export const Header = ({ counter }) => {
   return (
     <header className="header padding">
       <nav className="header-nav">
         <ul className="flex-space-between header-nav-browser">
-          <li>Tech Store</li>
-          <CarIcon counter={counter} />
+          <Link to="/">
+            <li>Tech Store</li>
+          </Link>
+          <Link to="/carrito">
+            <CarIcon counter={counter} />
+          </Link>
         </ul>
       </nav>
       <style jsx>{`
