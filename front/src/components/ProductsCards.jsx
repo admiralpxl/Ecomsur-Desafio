@@ -19,7 +19,7 @@ export const ProductsCards = ({
       </figure>
       <article className="product-card-info">
         <div className="flex-gap">
-          <span className="fas fa-box"></span>
+          <span className="fas fa-microchip"></span>
           <h2 className="product-card-name margin-bottom-8">{name}</h2>
         </div>
         <div className="flex-gap">
