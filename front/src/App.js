@@ -7,16 +7,6 @@ import { ProductsDetail } from "./components/ProductsDetail";
 import ShoppingCarItem from "./components/ShoppingCarItem";
 
 const App = () => {
-  const localStorageItems = localStorage.getItem("ITEMS_V1");
-  /*
-  let parsedItems;
-  if (!localStorageItems) {
-    localStorage.setItem("ITEMS_V1", JSON.stringify);
-    parsedItems = [];
-  } else {
-    parsedItems = JSON.parse(localStorageItems);
-  }*/
-
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -37,7 +27,7 @@ const App = () => {
 
   const addToCar = (id, data) => {
     let product = data;
-    let array = cartItems;
+    let array = [];
     array.push(product);
     setCartItems(array);
   };
