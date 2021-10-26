@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export const ProductsDetail = () => {
   const [productDetail, setProductDetail] = useState([]);
@@ -56,6 +56,12 @@ export const ProductsDetail = () => {
           <span className="fas fa-hand-holding-usd"></span>
           <p className="margin-bottom">$ {productDetail.price}</p>
         </div>
+        <Link to="/">
+          <button className="product-card-buttons transition-button">
+            <span className="fas fa-reply margin"></span>
+            Back
+          </button>
+        </Link>
       </article>
 
       <style jsx>{`
@@ -64,7 +70,6 @@ export const ProductsDetail = () => {
           height: auto;
           display: grid;
           font-size: 1.6rem;
-          align-items: start;
         }
         .margin-bottom {
           margin-bottom: 16px;
@@ -102,6 +107,20 @@ export const ProductsDetail = () => {
           align-items: center;
           color: var(--black);
           font-size: var(--card-items);
+        }
+        .product-card-buttons {
+          width: 120px;
+          height: 40px;
+          margin-right: 12px;
+          outline: none;
+          border: 3px solid var(--black);
+          text-align: center;
+          background-color: transparent;
+          font-size: var(--button);
+          font-family: var(--font-display);
+        }
+        .margin {
+          margin-right: 6px;
         }
         @media (min-width: 900px) {
           .product-detail {

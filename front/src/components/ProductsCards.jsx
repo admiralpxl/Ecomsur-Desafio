@@ -11,6 +11,7 @@ export const ProductsCards = ({
   disable,
   add,
   productId,
+  id,
 }) => {
   return (
     <article className="product-card scale">
@@ -46,15 +47,15 @@ export const ProductsCards = ({
           <Link to={`/products/${productId}`}>
             <button className="product-card-buttons transition-button">
               <span className="fas fa-money-check margin"></span>
-              Detalles
+              Details
             </button>
           </Link>
           <button
-            onClick={add}
+            onClick={() => add(id)}
             className={`product-card-buttons transition-button ${disable}`}
           >
             <span className="far fa-plus-square margin"></span>
-            Al Carrito
+            Add item
           </button>
         </article>
       </article>
@@ -74,7 +75,7 @@ export const ProductsCards = ({
         .product-card {
           display: grid;
           width: 100%;
-          max-width: 640px;
+          max-width: 580px;
           height: auto;
           background-color: var(--white);
           border-radius: 10px;
@@ -84,8 +85,8 @@ export const ProductsCards = ({
           color: var(--hover-gray);
         }
         .product-card-image {
-          width: 260px;
-          height: 220px;
+          width: 230px;
+          height: 200px;
           margin: 15px auto;
         }
         .product-card-name {
@@ -116,7 +117,7 @@ export const ProductsCards = ({
           color: var(--black);
           font-size: var(--card-items);
         }
-        @media (min-width: 550px) {
+        @media (min-width: 580px) {
           .product-card {
             grid-template-columns: 1fr 1fr;
             align-items: center;

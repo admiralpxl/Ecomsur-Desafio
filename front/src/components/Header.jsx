@@ -10,8 +10,8 @@ export const Header = ({ counter }) => {
           <Link to="/">
             <li>Tech Store</li>
           </Link>
-          <Link to="/carrito">
-            <CarIcon counter={counter} />
+          <Link to="/car">
+            <CarIcon counter={`${counter}`} />
           </Link>
         </ul>
       </nav>

@@ -4,7 +4,7 @@ export const CarIcon = ({ counter }) => {
   return (
     <div className="car-item flex-center">
       <h3 className="car-item-number">{counter}</h3>
-      <span className="fas fa-shopping-bag"></span>
+      <span className="fas fa-shopping-cart"></span>
       <style jsx>{`
         .car-item {
           position: relative;
@@ -12,7 +12,7 @@ export const CarIcon = ({ counter }) => {
           height: 40px;
           background-color: var(--white);
           border-radius: 10px;
-          font-size: 3rem;
+          font-size: 2.6rem;
           transition: all .4s ease;
         }
         .car-item:hover {

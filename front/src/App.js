@@ -4,28 +4,23 @@ import { Header } from "./components/Header";
 import { ProductsCards } from "./components/ProductsCards";
 import { Loader } from "./components/Loader";
 import { ProductsDetail } from "./components/ProductsDetail";
+import ShoppingCarItem from "./components/ShoppingCarItem";
 
 const App = () => {
-  // -------------------------------------------------
-  // DO NOT USE THE CODE BELOW FROM LINES 8 TO 18. THIS IS
-  // HERE TO MAKE SURE THAT THE EXPRESS SERVER IS RUNNING
-  // CORRECTLY. DELETE CODE WHEN COMPLETING YOUR TEST.
-  const [response, setResponse] = useState("");
-
-  // call server to see if its running
-  useEffect(() => {
-    const getApiResponse = () => {
-      fetch("http://localhost:5000/")
-        .then((res) => res.text())
-        .then((res) => setResponse(res));
-    };
-    getApiResponse();
-  }, []);
-  // -------------------------------------------------
+  const localStorageItems = localStorage.getItem("ITEMS_V1");
+  /*
+  let parsedItems;
+  if (!localStorageItems) {
+    localStorage.setItem("ITEMS_V1", JSON.stringify);
+    parsedItems = [];
+  } else {
+    parsedItems = JSON.parse(localStorageItems);
+  }*/
 
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [carItem, setCarItem] = useState("0");
+  const [cartItems, setCartItems] = useState([]);
+  const [carItem, setCarItem] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,21 +31,15 @@ const App = () => {
   const getApiProducts = async () => {
     let response = await fetch("http://localhost:5000/api/products");
     let data = await response.json();
-    console.log(data);
     setProducts(data);
     setIsLoading(true);
   };
 
-  const counter = (carProduct) => {
-    let count;
-    if (carProduct === 0) {
-      setCarItem(count);
-      console.log("hecho");
-    } else {
-      console.log("else hecho");
-      count += 1;
-      setCarItem(count);
-    }
+  const addToCar = (id, data) => {
+    let product = data;
+    let array = cartItems;
+    array.push(product);
+    setCartItems(array);
   };
 
   return (
@@ -63,7 +52,13 @@ const App = () => {
             <ProductsDetail />
           </Route>
 
-          <Route path="/carrito">pagina de los carritos</Route>
+          <Route path="/car">
+            <section className="padding flex-wrap center">
+              {cartItems.map((item) => (
+                <ShoppingCarItem key={item._id} data={item} />
+              ))}
+            </section>
+          </Route>
 
           <Route path="/">
             {!isLoading && <Loader />}
@@ -81,9 +76,7 @@ const App = () => {
                       reviews={item.numReviews}
                       disable={item.countInStock === 0 ? "disable" : ""}
                       productId={item._id}
-                      add={() => {
-                        counter(item.countInStock);
-                      }}
+                      add={() => addToCar(item._id, item)}
                     />
                   </>
                 ))}
